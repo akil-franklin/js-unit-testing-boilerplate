@@ -1,0 +1,14 @@
+{
+  "name": "mocha-lab",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "mocha spec"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "chai-things": "^0.2.0"
+  }
+}

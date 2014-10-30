@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Tests</title>
+
+    <link rel="stylesheet" media="all" href="bower_components/mocha/mocha.css">
+</head>
+
+<body>
+
+    <!-- Angular code (which will be tested via tests.js) -->
+    <script src="bower_components/angular/angular.min.js"></script>
+    <script src="main.js"></script>
+
+    <!-- HTML Elements that Mocha Expects -->
+    <div id="mocha"><p><a href=".">Index</a></p></div>
+    <div id="messages"></div>
+    <div id="fixtures"></div>
+
+    <!-- Testing Frameworks -->
+    <script src="bower_components/mocha/mocha.js"></script>
+    <script src="bower_components/chai/chai.js"></script>
+    <script src="node_modules/chai-things/lib/chai-things.js"></script>
+
+    <!--
+    * Setup Mocha, include angular mocking library, include tests, and run the tests
+    * Note that mocha.setup() must be called before angular-mocks is included,
+    * otherwise an unhandled JavaScript exception is thrown
+    -->
+    <script>mocha.setup('bdd')</script>
+    <script src="bower_components/angular-mocks/angular-mocks.js"></script>
+    <script src="tests.js"></script>
+    <script>mocha.run();</script>
+</body>
+</html>

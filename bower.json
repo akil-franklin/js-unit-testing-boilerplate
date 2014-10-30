@@ -1,0 +1,22 @@
+{
+  "name": "mocha-lab",
+  "version": "0.0.0",
+  "authors": [
+    "Akil Franklin <akil.frankin@gmail.com>"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "angular": "~1.3.0",
+    "angular-mocks": "~1.3.0",
+    "chai": "~1.9.2",
+    "mocha": "~2.0.1"
+  }
+}
