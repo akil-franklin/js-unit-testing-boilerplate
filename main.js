@@ -1,8 +1,6 @@
-var app = angular.module('app', ['controllers']);
+var controllers = angular.module('controllers', []);
 
-var Controllers = angular.module('controllers', []);
-
-Controllers.controller('ProductCatalogController', ['$scope', function($scope) {
+controllers.controller('ProductCatalogController', ['$scope', function($scope) {
     $scope.catalog = {
         laptops: [
             {name: "Inspiron", snippet: "Fast..."},
