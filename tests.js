@@ -1,8 +1,18 @@
-var expect = chai.expect; //convenience variable
+chai.should(); // enable Chai should syntax
+var expect = chai.expect; //convenience variable for Chai expect syntax
+
+/* Generic Tests */
+describe('Generic Examples', function() {
+    describe('Math Tests', function() {
+        it('TwoPlusTwo should equal 4', function() {
+            MOCHA_LAB.TwoPlusTwo().should.equal(4);
+        });
+    });
+});
 
 
 /* Angular Tests */
-describe('Angular Tests', function() {
+describe('Angular Examples', function() {
 
     beforeEach(module('controllers'));
 
@@ -30,3 +40,6 @@ describe('Angular Tests', function() {
         }));
     });
 });
+
+
+
