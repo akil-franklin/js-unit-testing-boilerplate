@@ -14,7 +14,7 @@ function ExampleObject() {
     return this;
 }
 
-//Attach functions (i.e. "methods") to the MochaLab object prototype.
+//Attach functions (i.e. "methods") to the ExampleObject prototype.
 ExampleObject.prototype.TwoPlusTwo = function() {
     return 4;
 }
