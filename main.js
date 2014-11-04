@@ -24,10 +24,10 @@ ExampleObject.prototype.TwoPlusTwo = function() {
  * Attaching functionality to Angular modules is another
  * way to avoid polluting the global scope.
  */
-var exampleApp = angular.module('exampleApp', []);
 
-//Attach the ProductCatalogController to the boilerplateApp
-exampleApp.controller('ProductCatalogController', ['$scope', function ($scope) {
+angular.module('exampleApp', []).
+
+controller('ProductCatalogController', ['$scope', function ($scope) {
     $scope.catalog = {
         laptops: [
             {name: "Inspiron", snippet: "Fast..."},
