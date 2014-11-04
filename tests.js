@@ -3,9 +3,11 @@ var expect = chai.expect; //convenience variable for Chai expect syntax
 
 /* Generic Tests */
 describe('Generic Examples', function() {
+
     describe('Math Tests', function() {
         it('TwoPlusTwo should equal 4', function() {
-            MOCHA_LAB.TwoPlusTwo().should.equal(4);
+            var obj = Object.create(ExampleObject.prototype);
+            obj.TwoPlusTwo().should.equal(4);
         });
     });
 });
@@ -14,7 +16,7 @@ describe('Generic Examples', function() {
 /* Angular Tests */
 describe('Angular Examples', function() {
 
-    beforeEach(module('controllers'));
+    beforeEach(module('exampleApp'));
 
     describe('ProductCatalogController', function() {
 

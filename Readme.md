@@ -1,6 +1,6 @@
 # JavaScript Unit Testing Boilerplate
 
-_Description: Provides simple boilerplate for a typical JavaScript unit testing stack._
+_Description: Provides simple boilerplate and examples for a typical JavaScript unit testing stack._
 
 
 ## Getting Started
