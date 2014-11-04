@@ -26,7 +26,6 @@ ExampleObject.prototype.TwoPlusTwo = function() {
  */
 
 angular.module('exampleApp', []).
-
 controller('ProductCatalogController', ['$scope', function ($scope) {
     $scope.catalog = {
         laptops: [
