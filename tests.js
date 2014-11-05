@@ -4,10 +4,32 @@ var expect = chai.expect; //convenience variable for Chai expect syntax
 /* Generic Tests */
 describe('Generic Examples', function() {
 
-    describe('Math Tests', function() {
+    describe('Example Object Tests', function() {
+
         it('TwoPlusTwo should equal 4', function() {
-            var obj = Object.create(ExampleObject.prototype);
-            obj.TwoPlusTwo().should.equal(4);
+            var obj = new ExampleObject();
+            obj.twoPlusTwo().should.equal(4);
+        });
+
+        it('ExampleObject is created properly', function() {
+            var obj = new ExampleObject();
+            obj.should.have.property('title');
+            obj.should.have.property('topSpeed');
+        });
+
+        it('Description contains title and top speed', function() {
+            var obj = new ExampleObject();
+            var description = obj.getDescription();
+            description.should.contain(obj.title);
+            description.should.contain(obj.topSpeed);
+            console.log(description);
+        });
+
+
+        it('Forgetting the new keyword with ExampleObject should throw an error', function() {
+            // If a developer makes a mistake and calls the ExampleObject constructor without
+            // the new keyword, an error should be thrown.
+            expect(ExampleObject.bind()).to.throw();
         });
     });
 });
@@ -16,6 +38,7 @@ describe('Generic Examples', function() {
 /* Angular Tests */
 describe('Angular Examples', function() {
 
+    //Create a new exampleApp angular module before each test
     beforeEach(module('exampleApp'));
 
     describe('ProductCatalogController', function() {

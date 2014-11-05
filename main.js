@@ -1,22 +1,37 @@
 /* ExampleObject
  * Provides an example of a JavaScript object.
  *
- * To use the object, create a new instance using Object.create()
- * ex. Object.create(ExampleObject.prototype)
+ * To use the object, create a new instance via one of the following:
+ * - using the new keyword if you want to use the default constructor
+ *      ex. new ExampleObject()
+ * - using Object.create() if you'd like to bypass the default constructor
+ *      ex. Object.create(ExampleObject.prototype)
  *
  * Objects can (and should) be used to prevent pollution of the global scope
  * and create more testable code; i.e., instead of creating global
  * variables and functions, attach them to objects.
- *
  */
 function ExampleObject() {
-    this.title = "Dell";
+
+    // if user accidentally omits the new keyword, this will
+    // silently correct the problem...
+    if ( !(this instanceof ExampleObject) ) {
+        throw Error("Constructor called as a function. Please use the new keyword or Object.create");
+    }
+
+    // Constructor Logic
+    this.title = "Tesla S";
+    this.topSpeed = 130;
     return this;
 }
 
 //Attach functions (i.e. "methods") to the ExampleObject prototype.
-ExampleObject.prototype.TwoPlusTwo = function() {
+ExampleObject.prototype.twoPlusTwo = function() {
     return 4;
+}
+
+ExampleObject.prototype.getDescription = function() {
+    return this.title + ' - ' + this.topSpeed + 'mph';
 }
 
 
@@ -24,7 +39,6 @@ ExampleObject.prototype.TwoPlusTwo = function() {
  * Attaching functionality to Angular modules is another
  * way to avoid polluting the global scope.
  */
-
 angular.module('exampleApp', []).
 controller('ProductCatalogController', ['$scope', function ($scope) {
     $scope.catalog = {
@@ -35,28 +49,3 @@ controller('ProductCatalogController', ['$scope', function ($scope) {
         ]
     }
 }]);
-
-
-
-/* Mozilla Object.create() Polyfill
- * Used to add Object.create() support for older
- * browsers like IE8
- * More Info: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/create
- */
-if (typeof Object.create != 'function') {
-    Object.create = (function() {
-        var Object = function() {};
-        return function (prototype) {
-            if (arguments.length > 1) {
-                throw Error('Second argument not supported');
-            }
-            if (typeof prototype != 'object') {
-                throw TypeError('Argument must be an object');
-            }
-            Object.prototype = prototype;
-            var result = new Object();
-            Object.prototype = null;
-            return result;
-        };
-    })();
-}
