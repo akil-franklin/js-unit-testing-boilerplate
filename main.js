@@ -9,12 +9,12 @@
  *
  * Objects can (and should) be used to prevent pollution of the global scope
  * and create more testable code; i.e., instead of creating global
- * variables and functions, attach them to objects.
+ * variables and functions (or creating variables and functions inside
+ * of document.ready), attach them to objects.
  */
 function ExampleObject() {
 
-    // if user accidentally omits the new keyword, this will
-    // silently correct the problem...
+    // if user accidentally omits the new keyword, this will throw an error
     if ( !(this instanceof ExampleObject) ) {
         throw Error("Constructor called as a function. Please use the new keyword or Object.create");
     }

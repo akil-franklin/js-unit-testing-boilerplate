@@ -65,6 +65,3 @@ describe('Angular Examples', function() {
         }));
     });
 });
-
-
-
